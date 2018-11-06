@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{% if num_students %}{{ num_students }}{% else %}0{% endif %} students registered. </h1>
+</div>
+
+<div>
+<form method="POST">
+	{{ form.hidden_tag() }} <br>
+	{{ form.uniquename.label }} {{ form.uniquename }} <br>
+	{{ form.name.label }} {{ form.name() }}<br>
+	{{ form.submit() }}
+</form>
+</div>
+
+<div>
+{% for message in get_flashed_messages() %}
+    <strong>{{ message }}</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

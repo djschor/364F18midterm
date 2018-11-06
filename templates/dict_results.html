@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for dc in get_flashed_messages() %}
+<b>Fields that were a problem:</b><br><br>
+    {% for key in dc %}
+        * <b>{{ key }}</b> - <i> {{ dc[key][0] }}</i> <br>
+    {% endfor %}
+{% endfor %}
+
+<br><br>
+
+<strong> related word to {{dicty[0]['id']}} </strong> <br>
+{% for x in dicty %} 
+{{ x['id'] }} <br>
+{% endfor %}
+
+
+{% endblock %}

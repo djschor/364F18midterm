@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for dc in get_flashed_messages() %}
+<b>Fields that were a problem:</b><br><br>
+    {% for key in dc %}
+        * <b>{{ key }}</b> - <i> {{ dc[key][0] }}</i> <br>
+    {% endfor %}
+{% endfor %}
+
+<br><br>
+<h1>Form</h1>
+<form action="{{url_for('dictresults')}}" method="GET">
+  {{ form.hidden_tag() }}
+  {{ form.word.label }} {{ form.word() }}<br>
+  {{ form.submit() }}<br>
+</form>
+{% endblock %}
